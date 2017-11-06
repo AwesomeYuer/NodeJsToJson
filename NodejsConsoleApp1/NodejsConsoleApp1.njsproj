@@ -45,6 +45,10 @@
     <Compile Include="node_modules\node-requirejs-define\tests\tests.js" />
     <Compile Include="node_modules\requirejs\bin\r.js" />
     <Compile Include="node_modules\requirejs\require.js" />
+    <Compile Include="options\option2.js" />
+    <Compile Include="options\option5.js" />
+    <Compile Include="options\option4.js" />
+    <Compile Include="options\option3.js" />
     <Compile Include="options\option1.js" />
     <Content Include="node_modules\.bin\r.js.cmd" />
     <Content Include="node_modules\.bin\r_js" />
