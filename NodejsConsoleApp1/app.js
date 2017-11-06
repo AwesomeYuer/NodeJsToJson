@@ -5,7 +5,7 @@ function Travel(sourceDir, onFileProcess) {
     var fs = require('fs');
     var directories = fs.readdirSync(sourceDir);
     directories.forEach(function (item) {
-        if (fs.statSync(sourceDir+ '/' + item).isDirectory()) {
+        if (fs.statSync(sourceDir + '/' + item).isDirectory()) {
             Travel(sourceDir + '/' + item, onFileProcess);
         } else {
             var file = sourceDir + '/' + item;
