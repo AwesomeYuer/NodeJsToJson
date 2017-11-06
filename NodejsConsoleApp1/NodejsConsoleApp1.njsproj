@@ -82,6 +82,7 @@
     <Compile Include="node_modules\node-requirejs-define\tests\tests.js" />
     <Compile Include="node_modules\requirejs\bin\r.js" />
     <Compile Include="node_modules\requirejs\require.js" />
+    <Compile Include="node_modules\universalify\index.js" />
     <Compile Include="options\option2.js" />
     <Compile Include="options\option5.js" />
     <Compile Include="options\option4.js" />
@@ -135,6 +136,9 @@
     <Content Include="node_modules\node-requirejs-define\README.md" />
     <Content Include="node_modules\requirejs\package.json" />
     <Content Include="node_modules\requirejs\README.md" />
+    <Content Include="node_modules\universalify\LICENSE" />
+    <Content Include="node_modules\universalify\package.json" />
+    <Content Include="node_modules\universalify\README.md" />
     <Content Include="options\option1.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
@@ -168,6 +172,7 @@
     <Folder Include="node_modules\node-requirejs-define\tests\lib\foo\biz\" />
     <Folder Include="node_modules\requirejs\" />
     <Folder Include="node_modules\requirejs\bin\" />
+    <Folder Include="node_modules\universalify\" />
     <Folder Include="options\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
