@@ -1,12 +1,12 @@
 define = require('node-requirejs-define');
 'use strict';
 
-function Travel(sourceDir, onFileProcess) {
+function TravelDirectory(sourceDir, onFileProcess) {
     var fs = require('fs');
     var directories = fs.readdirSync(sourceDir);
     directories.forEach(function (item) {
         if (fs.statSync(sourceDir + '/' + item).isDirectory()) {
-            Travel(sourceDir + '/' + item, onFileProcess);
+            TravelDirectory(sourceDir + '/' + item, onFileProcess);
         } else {
             var file = sourceDir + '/' + item;
             if (file.endsWith(".js")) {
@@ -33,7 +33,7 @@ function JsToJson(source, sourceRootDir, destRootDir) {
 dir /b /s *.js >a.txt
 */
 
-Travel('e:/temp/options', function (file) {
+TravelDirectory('e:/temp/options', function (file) {
     JsToJson(file, 'E:/Temp/', 'e:/temp/output/');
 });
 
