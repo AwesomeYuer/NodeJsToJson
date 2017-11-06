@@ -140,6 +140,7 @@
     <Content Include="node_modules\universalify\package.json" />
     <Content Include="node_modules\universalify\README.md" />
     <Content Include="options\option1.json" />
+    <Content Include="package-lock.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
   </ItemGroup>
