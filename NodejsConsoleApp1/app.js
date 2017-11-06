@@ -18,16 +18,20 @@ function TravelDirectory(sourceDir, onFileProcess) {
 
 function JsToJson(source, sourceRootDir, destRootDir) {
     var regExp = new RegExp(sourceRootDir, "ig");
-    var outputOptionFilePath = source.replace(regExp, destRootDir).replace(".js", ".json");
-    var x = require(source);
-    var json = JSON.stringify(x, null, 4);
+    var outputFilePath = source.replace(regExp, destRootDir).replace(".js", ".json");
+    var fse = require('fs-extra');
     var fs = require('fs');
-    var path = require('path');
-    var destDir = path.dirname(outputOptionFilePath);
-    if (!fs.existsSync(destDir)) {
-        fs.mkdirSync(destDir);
+    if (!fs.existsSync(destRootDir)) {
+        fse.mkdirpSync(destRootDir);
     }
-    fs.writeFileSync(outputOptionFilePath, json);
+    var path = require('path');
+    var destDir = path.dirname(outputFilePath);
+    if (!fs.existsSync(destDir)) {
+        fse.mkdirpSync(destDir);
+    }
+    var jsonObject = require(source);
+    var json = JSON.stringify(jsonObject, null, 4);
+    fs.writeFileSync(outputFilePath, json);
 }
 /*
 dir /b /s *.js >a.txt
