@@ -2,13 +2,13 @@ define = require('node-requirejs-define');
 'use strict';
 
 function TravelDirectory(sourceDir, onFileProcessFunc) {
-    var fs = require('fs');
-    var directories = fs.readdirSync(sourceDir);
-    directories.forEach(function (item) {
-        if (fs.statSync(sourceDir + '/' + item).isDirectory()) {
-            TravelDirectory(sourceDir + '/' + item, onFileProcessFunc);
+    var fsHelper = require('fs');
+    var entries = fsHelper.readdirSync(sourceDir);
+    entries.forEach(function (entry) {
+        if (fsHelper.statSync(sourceDir + '/' + entry).isDirectory()) {
+            TravelDirectory(sourceDir + '/' + entry, onFileProcessFunc);
         } else {
-            var file = sourceDir + '/' + item;
+            var file = sourceDir + '/' + entry;
             if (file.endsWith(".js")) {
                 onFileProcessFunc(file);
             }
@@ -19,19 +19,19 @@ function TravelDirectory(sourceDir, onFileProcessFunc) {
 function JsToJson(source, sourceRootDir, destRootDir) {
     var regExp = new RegExp(sourceRootDir, "ig");
     var outputFilePath = source.replace(regExp, destRootDir).replace(".js", ".json");
-    var fse = require('fs-extra');
-    var fs = require('fs');
-    if (!fs.existsSync(destRootDir)) {
-        fse.mkdirpSync(destRootDir);
+    var fseHelper = require('fs-extra');
+    var fsHelper = require('fs');
+    if (!fsHelper.existsSync(destRootDir)) {
+        fseHelper.mkdirpSync(destRootDir);
     }
-    var path = require('path');
-    var destDir = path.dirname(outputFilePath);
-    if (!fs.existsSync(destDir)) {
-        fse.mkdirpSync(destDir);
+    var pathHelper = require('path');
+    var destDir = pathHelper.dirname(outputFilePath);
+    if (!fsHelper.existsSync(destDir)) {
+        fseHelper.mkdirpSync(destDir);
     }
     var jsonObject = require(source);
     var json = JSON.stringify(jsonObject, null, 4);
-    fs.writeFileSync(outputFilePath, json);
+    fsHelper.writeFileSync(outputFilePath, json);
 }
 /*
 dir /b /s *.js >a.txt
