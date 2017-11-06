@@ -18,7 +18,7 @@ function TravelDirectory(sourceDir, onFileProcess) {
 
 function JsToJson(source, sourceRootDir, destRootDir) {
     var regExp = new RegExp(sourceRootDir, "ig");
-    var outputOptionFilePath = source.replace(regExp, destRootDir,).replace(".js", ".json");
+    var outputOptionFilePath = source.replace(regExp, destRootDir).replace(".js", ".json");
     var x = require(source);
     var json = JSON.stringify(x, null, 4);
     var fs = require('fs');
