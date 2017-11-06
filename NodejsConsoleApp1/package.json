@@ -5,5 +5,8 @@
   "main": "app.js",
   "author": {
     "name": "xiyueyu"
+  },
+  "dependencies": {
+    "node-requirejs-define": "^1.0.1"
   }
 }
