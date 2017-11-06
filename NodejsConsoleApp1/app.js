@@ -1,16 +1,16 @@
 define = require('node-requirejs-define');
 'use strict';
 
-function TravelDirectory(sourceDir, onFileProcess) {
+function TravelDirectory(sourceDir, onFileProcessFunc) {
     var fs = require('fs');
     var directories = fs.readdirSync(sourceDir);
     directories.forEach(function (item) {
         if (fs.statSync(sourceDir + '/' + item).isDirectory()) {
-            TravelDirectory(sourceDir + '/' + item, onFileProcess);
+            TravelDirectory(sourceDir + '/' + item, onFileProcessFunc);
         } else {
             var file = sourceDir + '/' + item;
             if (file.endsWith(".js")) {
-                onFileProcess(file);
+                onFileProcessFunc(file);
             }
         }
     });
