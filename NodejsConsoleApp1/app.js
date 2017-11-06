@@ -6,7 +6,7 @@ function Travel(sourceDir, onFileProcess) {
     var directories = fs.readdirSync(sourceDir);
     directories.forEach(function (item) {
         if (fs.statSync(sourceDir+ '/' + item).isDirectory()) {
-            Travel(sourceDir + '/' + item);
+            Travel(sourceDir + '/' + item, onFileProcess);
         } else {
             var file = sourceDir + '/' + item;
             if (file.endsWith(".js")) {
@@ -22,6 +22,11 @@ function JsToJson(source, sourceRootDir, destRootDir) {
     var x = require(source);
     var json = JSON.stringify(x, null, 4);
     var fs = require('fs');
+    var path = require('path');
+    var destDir = path.dirname(outputOptionFilePath);
+    if (!fs.existsSync(destDir)) {
+        fs.mkdirSync(destDir);
+    }
     fs.writeFileSync(outputOptionFilePath, json);
 }
 /*
