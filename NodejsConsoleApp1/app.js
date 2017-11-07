@@ -18,7 +18,7 @@ travelDirectoryHelper(sourceDir, function (file) {
     try {
         if (file.endsWith(".js")) {
             defineJsToJsonHelper(file, sourceRootDir, destRootDir);
-            i++;
+            i ++;
         }
     } catch (err) {
         console.log("err: " + file);
