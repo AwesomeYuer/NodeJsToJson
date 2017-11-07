@@ -29,6 +29,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="modules\defineJsToJson.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="modules\TravelDirectory.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="node_modules\.bin\r.js" />
     <Compile Include="node_modules\fs-extra\lib\copy-sync\copy-file-sync.js" />
     <Compile Include="node_modules\fs-extra\lib\copy-sync\copy-sync.js" />
@@ -145,6 +151,7 @@
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="modules\" />
     <Folder Include="node_modules\" />
     <Folder Include="node_modules\.bin\" />
     <Folder Include="node_modules\fs-extra\" />
