@@ -36,10 +36,21 @@ function JsToJson(source, sourceRootDir, destRootDir) {
 /*
 dir /b /s *.js >a.txt
 */
+var i = 0;
+var j = 0;
+TravelDirectory('E:/Temp/en-US/en-US/Common/option', function (file) {
+    try {
 
-TravelDirectory('e:/temp/options', function (file) {
-    JsToJson(file, 'E:/Temp/', 'e:/temp/output/');
+        JsToJson(file, 'E:/Temp/en-US/', 'e:/temp/output2/');
+        i++;
+    } catch (err) {
+        console.log("err: " + file);
+        j ++;
+    }
+    
 });
+console.log("success: " + i);
+console.log("error: " + j);
 
 
 //JsToJson('E:/Temp/options/option2.js'       , 'E:/Temp/', 'e:/temp/output/');
