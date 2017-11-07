@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 
-function defineJsToJson(source, sourceRootDir, destRootDir) {
+function DefineJsToJson(source, sourceRootDir, destRootDir) {
     var regExp = new RegExp(sourceRootDir, "ig");
     var outputFilePath = source.replace(regExp, destRootDir).replace(".js", ".json");
     var fseHelper = require('fs-extra');
@@ -19,4 +19,4 @@ function defineJsToJson(source, sourceRootDir, destRootDir) {
     fsHelper.writeFileSync(outputFilePath, json);
 }
 
-module.exports = defineJsToJson;
+module.exports = DefineJsToJson;
